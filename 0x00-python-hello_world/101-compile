@@ -8,6 +8,3 @@ PYFILEC="${PYFILE%.*}.pyc"
 
 # Compile the Python script file with optimized bytecode
 python3 -m compileall -b "$PYFILE"
-
-# Rename the compiled file to the output filename
-mv "${PYFILE}__pycache__/${PYFILE}*.pyc" "$PYFILEC"
