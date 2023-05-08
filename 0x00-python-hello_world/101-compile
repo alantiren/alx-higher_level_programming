@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/bin/bash
 
 # Get the filename from the environment variable
 PYFILE="$PYFILE"
