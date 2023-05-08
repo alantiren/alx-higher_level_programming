@@ -13,8 +13,8 @@
  */
 typedef struct listint_s
 {
-    int n;
-    struct listint_s *next;
+int n;
+struct listint_s *next;
 } listint_t;
 
 /**
@@ -27,8 +27,8 @@ typedef struct listint_s
  */
 typedef struct listptr_s
 {
-    void *ptr;
-    struct listptr_s *next;
+void *ptr;
+struct listptr_s *next;
 } listptr_t;
 
 /* Print Functions */
