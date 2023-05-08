@@ -7,7 +7,6 @@ PYFILE="$PYFILE"
 PYFILEC="${PYFILE%.*}.pyc"
 
 # Compile the Python script file with optimized bytecode
-echo "Compiling $PYFILE ..."
 python3 -m compileall -b "$PYFILE"
 
 # Rename the compiled file to the output filename
