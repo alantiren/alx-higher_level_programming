@@ -4,8 +4,4 @@
 pyfile=$PYFILE
 
 # Compile the Python file
-python3 -m py_compile $pyfile
-
-# Rename the compiled file
-pycfile=${pyfile%.*}.pyc
-mv $pycfile ${pycfile}c
+python3 -m compileall -b pyfile i
