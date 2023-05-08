@@ -1,7 +1,2 @@
 #!/bin/bash/python3
-
-# Get the Python file name from the environment variable
-pyfile=$PYFILE
-
-# Compile the Python file
-python3 -m compileall -b pyfile i
+python3 -m compileall -b $PYFILE i
