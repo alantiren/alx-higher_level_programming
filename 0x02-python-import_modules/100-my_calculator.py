@@ -2,7 +2,7 @@
 import sys
 from calculator_1 import add, sub, mul, div
 
-if len(sys.argv) != 4:
+if len(sys.argv) != 3:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     sys.exit(1)
 if operator == "+":
@@ -19,5 +19,4 @@ else:
 
 a = int(sys.argv[1])
 b = int(sys.argv[3])
-operator = sys.argv[2]
 print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
