@@ -46,7 +46,7 @@ int is_palindrome(listint_t **head)
 	else
 		prev_slow->next = second_half;
 
-	return is_palindrome;
+	return (is_palindrome);
 }
 
 /**
@@ -84,14 +84,14 @@ int compare_lists(listint_t *list1, listint_t *list2)
 	while (list1 != NULL && list2 != NULL)
 	{
 		if (list1->n != list2->n)
-			return 0;
+			return (0);
 
 		list1 = list1->next;
 		list2 = list2->next;
 	}
 
 	if (list1 == NULL && list2 == NULL)
-		return 1;
+		return (1);
 
-	return 0;
+	return (0);
 }
