@@ -48,7 +48,7 @@ prev_slow = slow;
 slow = slow->next;
 }
 
-if (fast != NULL) // odd number of nodes, skip the middle one
+if (fast != NULL)
 {
 slow = slow->next;
 }
@@ -65,7 +65,7 @@ break;
 current = current->next;
 second_half = second_half->next;
 }
-reverse_listint(&tmp); // restore the second half
-prev_slow->next = tmp; // reconnect the first half and the restored second half
+reverse_listint(&tmp);
+prev_slow->next = tmp;
 return (is_palindrome);
 }
