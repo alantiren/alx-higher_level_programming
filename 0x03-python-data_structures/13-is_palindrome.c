@@ -70,5 +70,5 @@ second_half = second_half->next;
 }
 reverse_listint(&tmp);
 prev_slow->next = tmp;
-return (1);
+return (is_palindrome);
 }
