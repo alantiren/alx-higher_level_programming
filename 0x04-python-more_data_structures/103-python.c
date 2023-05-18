@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Python.h>
+#include <time.h>
 
 void print_python_list(PyObject *p) {
     Py_ssize_t size, i;
