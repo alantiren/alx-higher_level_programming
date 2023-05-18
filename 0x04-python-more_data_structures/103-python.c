@@ -1,61 +1,46 @@
-#include <stdio.h>
 #include <Python.h>
 #include <datetime.h>
 
+void print_python_list(PyObject *p) {
+    Py_ssize_t size, i;
+    PyObject *item;
 
-/**
- * print_python_bytes - Prints bytes information
- *
- * @p: Python Object
- */
-void print_python_bytes(PyObject *p)
-{
-	PyBytesObject *bytes = (PyBytesObject *)p;
-	Py_ssize_t size, limit, i;
+    if (!PyList_Check(p)) {
+        printf("Invalid Python list object.\n");
+        return;
+    }
 
-	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
-	}
+    size = PyList_Size(p);
+    printf("[*] Python list info\n");
+    printf("[*] Size of the Python List = %ld\n", size);
+    printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
-	size = PyBytes_Size(p);
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", bytes->ob_sval);
-
-	limit = (size <= 10) ? size + 1 : 10;
-	printf("  first %ld bytes:", limit);
-
-	for (i = 0; i < limit; i++)
-		printf(" %02x", (unsigned char)bytes->ob_sval[i]);
-
-	printf("\n");
+    for (i = 0; i < size; i++) {
+        item = PyList_GetItem(p, i);
+        printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
+    }
 }
 
-/**
- * print_python_list - Prints list information
- *
- * @p: Python Object
- */
-void print_python_list(PyObject *p)
-{
-	Py_ssize_t size, i;
-	PyListObject *list;
-	PyObject *obj;
+void print_python_bytes(PyObject *p) {
+    Py_ssize_t size, i;
+    char *str;
 
-	size = PyList_Size(p);
-	list = (PyListObject *)p;
+    if (!PyBytes_Check(p)) {
+        printf("Invalid Python bytes object.\n");
+        return;
+    }
 
-	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", list->allocated);
+    size = PyBytes_Size(p);
+    str = PyBytes_AsString(p);
 
-	for (i = 0; i < size; i++)
-	{
-		obj = PyList_GetItem(p, i);
-		printf("Element %ld: %s\n", i, Py_TYPE(obj)->tp_name);
-		if (PyBytes_Check(obj))
-			print_python_bytes(obj);
-	}
+    printf("[.] bytes object info\n");
+    printf("  size: %ld\n", size);
+    printf("  trying string: %s\n", str);
+
+    if (size > 10)
+        size = 10;
+
+    printf("  first %ld bytes: ", size);
+    for (i = 0; i < size; i++)
+        printf("%02x%c", (unsigned char)str[i], (i + 1 == size) ? '\n' : ' ');
 }
