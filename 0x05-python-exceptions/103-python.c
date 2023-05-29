@@ -8,7 +8,6 @@ void print_python_float(PyObject *p);
  * print_python_list - Prints basic information about Python lists
  * @p: Pointer to the PyObject list object
  */
-
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, alloc, i;
@@ -47,7 +46,6 @@ void print_python_list(PyObject *p)
  * print_python_bytes - Prints basic information about Python bytes
  * @p: Pointer to the PyObject bytes object
  */
-
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, i;
@@ -86,7 +84,6 @@ void print_python_bytes(PyObject *p)
  * print_python_float - Prints basic information about Python floats
  * @p: Pointer to the PyObject float object
  */
-
 void print_python_float(PyObject *p)
 {
 	char *buffer = NULL;
