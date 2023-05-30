@@ -6,9 +6,7 @@ import math
 
 
 class MagicClass:
-    """
-    A class that performs magical calculations.
-    """
+    """Class that performs magical calculations."""
 
     def __init__(self, radius: float) -> None:
         """
