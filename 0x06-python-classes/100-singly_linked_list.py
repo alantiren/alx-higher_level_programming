@@ -31,15 +31,6 @@ class Node:
 
     @data.setter
     def data(self, value):
-        """
-        Set the data of the Node.
-
-        Args:
-            value (int): The value to set as data.
-
-        Raises:
-            TypeError: If the value is not an integer.
-        """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
@@ -47,21 +38,11 @@ class Node:
     @property
     def next_node(self):
         """
-        Get or set the next_node of the Node.
-        """
+        Get or set the next_node of the Node."""
         return (self.__next_node)
 
     @next_node.setter
     def next_node(self, value):
-        """
-        Set the next_node of the Node.
-
-        Args:
-            value (Node): The Node object to set as next_node.
-
-        Raises:
-            TypeError: If the value is not a Node object or None.
-        """
         if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -69,13 +50,11 @@ class Node:
 
 class SinglyLinkedList:
     """
-    Represent a singly-linked list.
-    """
+    Represent a singly-linked list."""
 
     def __init__(self):
         """
-        Initialize a new SinglyLinkedList.
-        """
+        Initialize a new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):

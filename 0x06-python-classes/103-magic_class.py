@@ -29,19 +29,9 @@ class MagicClass:
         self.__radius = radius
 
     def area(self) -> float:
-        """
-        Calculate the area of the circle.
-
-        Returns:
-            float: The area of the circle.
-        """
+        """Calculate the area of the circle."""
         return (self.__radius ** 2 * math.pi)
 
     def circumference(self) -> float:
-        """
-        Calculate the circumference of the circle.
-
-        Returns:
-            float: The circumference of the circle.
-        """
+        """Calculate the circumference of the circle."""
         return(2 * math.pi * self.__radius)

@@ -25,22 +25,11 @@ class Square:
     @property
     def size(self):
         """
-        Get or set the size of the square.
-        """
+        Get or set the size of the square."""
         return (self.__size)
 
     @size.setter
     def size(self, value):
-        """
-        Set the size of the square.
-
-        Args:
-            value (int): The value to set as the size.
-
-        Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than 0.
-        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -49,22 +38,11 @@ class Square:
 
     @property
     def position(self):
-        """
-        Get or set the position of the square.
-        """
+        """Get or set the position of the square."""
         return (self.__position)
 
     @position.setter
     def position(self, value):
-        """
-        Set the position of the square.
-
-        Args:
-            value (tuple): The tuple representing the position.
-
-        Raises:
-            TypeError: If the value is not a tuple of 2 positive integers.
-        """
         if (not isinstance(value, tuple) or
                 len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
@@ -73,18 +51,11 @@ class Square:
         self.__position = value
 
     def area(self):
-        """
-        Calculate and return the area of the square.
-
-        Returns:
-            int: The area of the square.
-        """
+        """Returns:int: The area of the square."""
         return (self.__size * self.__size)
 
     def my_print(self):
-        """
-        Print the square using the '#' character.
-        """
+        """Print the square using the '#' character."""
         if self.__size == 0:
             print("")
             return
@@ -96,12 +67,7 @@ class Square:
             print("")
 
     def __str__(self):
-        """
-        Return a string representation of the square.
-
-        Returns:
-            str: The string representation of the square.
-        """
+        """Return a string representation of the square."""
         if self.__size != 0:
             [print("") for i in range(0, self.__position[1])]
         for i in range(0, self.__size):
