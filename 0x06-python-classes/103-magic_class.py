@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Module -MagicClass
 MagicClass matching exactly a bytecode provided by Holberton.
