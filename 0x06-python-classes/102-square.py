@@ -25,7 +25,7 @@ class Square:
         """
         Get or set the size of the square.
         """
-        return self.__size
+        return (self.__size)
 
     @size.setter
     def size(self, value):
@@ -52,7 +52,7 @@ class Square:
         Returns:
             float: The area of the square.
         """
-        return self.size ** 2
+        return (self.__size * self.__size)
 
     def __eq__(self, other):
         """

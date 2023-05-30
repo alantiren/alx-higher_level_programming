@@ -36,7 +36,6 @@ class MagicClass:
         """
         return (self.__radius ** 2 * math.pi)
 
-
     def circumference(self) -> float:
         """
         Calculate the circumference of the circle.
