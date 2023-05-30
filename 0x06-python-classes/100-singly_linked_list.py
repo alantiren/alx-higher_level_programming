@@ -14,7 +14,6 @@ class Node:
     def __init__(self, data, next_node=None):
         """
         Initialize a new Node.
-
         Args:
             data (int): The data of the new Node.
             next_node (Node): The next node of the new Node.
@@ -24,9 +23,7 @@ class Node:
 
     @property
     def data(self):
-        """
-        Get or set the data of the Node.
-        """
+        """Get or set the data of the Node."""
         return (self.__data)
 
     @data.setter
@@ -37,8 +34,7 @@ class Node:
 
     @property
     def next_node(self):
-        """
-        Get or set the next_node of the Node."""
+        """Get or set the next_node of the Node."""
         return (self.__next_node)
 
     @next_node.setter
@@ -49,17 +45,15 @@ class Node:
 
 
 class SinglyLinkedList:
-    """
-    Represent a singly-linked list."""
+    """Represent a singly-linked list."""
 
     def __init__(self):
-        """
-        Initialize a new SinglyLinkedList."""
+        """Initialize a new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):
         """
-        Insert a new Node into the SinglyLinkedList in the correct sorted position.
+        Insert a new Node into the SinglyLinkedList.
 
         Args:
             value (int): The value to be inserted.
@@ -80,12 +74,7 @@ class SinglyLinkedList:
             tmp.next_node = new
 
     def __str__(self):
-        """
-        Return a string representation of the SinglyLinkedList.
-
-        Returns:
-            str: The string representation of the SinglyLinkedList.
-        """
+        """Return a string representation of the SinglyLinkedList."""
         values = []
         tmp = self.__head
         while tmp is not None:
