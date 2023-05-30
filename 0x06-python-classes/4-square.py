@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 """
-Module: 5-square
+Module: 4-square
 Defines a Square class with private instance attribute size,
-property getter and setter for size, and methods to calculate
-the area of the square and print it.
+property getter and setter for size, and a method to calculate
+the area of the square.
 """
 
 
@@ -62,15 +62,3 @@ class Square:
             int: The area of the square.
         """
         return self.__size ** 2
-
-    def my_print(self):
-        """
-        Prints the square using the '#' character.
-
-        If the size is 0, an empty line is printed.
-        """
-        if self.__size == 0:
-            print()
-        else:
-            for _ in range(self.__size):
-                print("#" * self.__size)
