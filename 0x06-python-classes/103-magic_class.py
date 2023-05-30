@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-Module -MagicClass
-MagicClass matching exactly a bytecode provided by Holberton.
-"""
+"""Module -MagicClass"""
+
 import math
 
 
@@ -22,9 +20,9 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
-        """Return the calculated area of the MagicClass."""
+        """Return the area of the MagicClass."""
         return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
-        """Return the calculated circumference of the MagicClass."""
+        """Return the circumference of the MagicClass."""
         return (2 * math.pi * self.__radius)
