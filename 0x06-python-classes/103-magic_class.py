@@ -15,13 +15,10 @@ class MagicClass:
 
     def __init__(self, radius: float) -> None:
         """
-        Initialize the MagicClass object with a given radius.
+        Initialize the MagicClass object.
 
         Args:
             radius (int or float): The radius of the circle.
-
-        Raises:
-            TypeError: If the radius is not a number.
         """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
