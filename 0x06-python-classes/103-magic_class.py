@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-Module - MagicClassmatching exactly a bytecode provided by Holberton.
+Module -MagicClass
+MagicClass matching exactly a bytecode provided by Holberton.
 """
 
 import math
+
 
 class MagicClass:
     """
@@ -21,10 +23,8 @@ class MagicClass:
             TypeError: If the radius is not a number.
         """
         self.__radius = 0
-
-        if not isinstance(radius, (int, float)):
-            raise TypeError('radius must be a number')
-
+        if type(radius) is not int and type(radius) is not float:
+            raise TypeError("radius must be a number")
         self.__radius = radius
 
     def area(self) -> float:
@@ -34,7 +34,8 @@ class MagicClass:
         Returns:
             float: The area of the circle.
         """
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2 * math.pi)
+
 
     def circumference(self) -> float:
         """
@@ -43,4 +44,4 @@ class MagicClass:
         Returns:
             float: The circumference of the circle.
         """
-        return 2 * math.pi * self.__radius
+        return(2 * math.pi * self.__radius)

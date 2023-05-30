@@ -8,43 +8,36 @@ Defines the Square class.
 
 class Square:
     """
-    Represents a square.
+    Represent a square.
     """
 
     def __init__(self, size=0):
         """
-        Initializes a Square instance.
+        Initialize a new Square.
 
         Args:
-            size (float or int): The size of the square's side (default is 0).
-
-        Raises:
-            TypeError: If size is not a number.
-            ValueError: If size is less than 0.
+            size (int): The size of the square.
         """
         self.size = size
 
     @property
     def size(self):
         """
-        Retrieves the size of the square's side.
-
-        Returns:
-            float or int: The size of the square's side.
+        Get or set the size of the square.
         """
         return self.__size
 
     @size.setter
     def size(self, value):
         """
-        Sets the size of the square's side.
+        Set the size of the square.
 
         Args:
-            value (float or int): The new size of the square's side.
+            value (int): The value to set as the size.
 
         Raises:
-            TypeError: If value is not a number.
-            ValueError: If value is less than 0.
+            TypeError: If the value is not a number (float or integer).
+            ValueError: If the value is less than 0.
         """
         if not isinstance(value, (float, int)):
             raise TypeError("size must be a number")
@@ -54,19 +47,19 @@ class Square:
 
     def area(self):
         """
-        Calculates the area of the square.
+        Calculate and return the area of the square.
 
         Returns:
-            float or int: The area of the square.
+            float: The area of the square.
         """
         return self.size ** 2
 
     def __eq__(self, other):
         """
-        Checks if two squares are equal based on their areas.
+        Compare if two squares have equal areas.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
             bool: True if the areas are equal, False otherwise.
@@ -75,60 +68,60 @@ class Square:
 
     def __ne__(self, other):
         """
-        Checks if two squares are not equal based on their areas.
+        Compare if two squares have different areas.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
-            bool: True if the areas are not equal, False otherwise.
+            bool: True if the areas are different, False otherwise.
         """
         return self.area() != other.area()
 
     def __gt__(self, other):
         """
-        Checks if the area of the first square is greater than the area of the second square.
+        Compare if one square has a greater area than the other.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
-            bool: True if the area of the first square is greater, False otherwise.
+            bool: True if the first square has a greater area, False otherwise.
         """
         return self.area() > other.area()
 
     def __ge__(self, other):
         """
-        Checks if the area of the first square is greater than or equal to the area of the second square.
+        Compare if one square has a greater or equal area than the other.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
-            bool: True if the area of the first square is greater than or equal, False otherwise.
+            bool: True if the first square has a greater or equal area, False otherwise.
         """
         return self.area() >= other.area()
 
     def __lt__(self, other):
         """
-        Checks if the area of the first square is less than the area of the second square.
+        Compare if one square has a smaller area than the other.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
-            bool: True if the area of the first square is less, False otherwise.
+            bool: True if the first square has a smaller area, False otherwise.
         """
         return self.area() < other.area()
 
     def __le__(self, other):
         """
-        Checks if the area of the first square is less than or equal to the area of the second square.
+        Compare if one square has a smaller or equal area than the other.
 
         Args:
-            other (Square): The other square to compare.
+            other (Square): The other Square object to compare.
 
         Returns:
-            bool: True if the area of the first square is less than or equal, False otherwise.
+            bool: True if the first square has a smaller or equal area, False otherwise.
         """
         return self.area() <= other.area()
