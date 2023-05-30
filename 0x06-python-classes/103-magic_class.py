@@ -7,7 +7,6 @@ import math
 class MagicClass:
     """A class that performs calculations."""
 
-
     def __init__(self, radius=0):
         """Initialize a MagicClass project.
 
