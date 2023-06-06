@@ -1,0 +1,23 @@
+guillaume@ubuntu:~/0x07$ cat tests/4-print_square.txt
+#!/usr/bin/python3
+"""
+This is a test module for the print_square function.
+"""
+import doctest
+from print_square import print_square
+
+print_square(4)
+print("")
+print_square(10)
+print("")
+print_square(0)
+print("")
+print_square(1)
+print("")
+try:
+    print_square(-1)
+except Exception as e:
+    print(e)
+print("")
+
+doctest.testmod()
