@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# 0-add_interger.py
+"""Defines how to add an integer"""
+
 
 def add_integer(a, b=98):
     """

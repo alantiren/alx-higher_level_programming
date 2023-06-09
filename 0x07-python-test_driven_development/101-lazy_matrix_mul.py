@@ -1,31 +1,32 @@
 #!/usr/bin/python3
-"""
-Module to multiply two matrices using NumPy
-"""
-
+# 101-lazy_matrix_mul.py
+"""Defines using NumPy matrix multiplication function."""
 import numpy as np
 
+
 def lazy_matrix_mul(m_a, m_b):
-    """
-    Multiplies two matrices using NumPy
+    """Return the multiplication of two matrices.
 
     Args:
-        m_a (list): First matrix
-        m_b (list): Second matrix
-
-    Returns:
-        numpy.ndarray: Resulting matrix
+        m_a (list of lists of ints/floats): The first matrix.
+        m_b (list of lists of ints/floats): The second matrix.
     """
-    matrix_a = np.array(m_a)
-    matrix_b = np.array(m_b)
-    return np.matmul(matrix_a, matrix_b)
+    if not isinstance(m_a, list) or not isinstance(m_b, list):
+        raise TypeError("m_a and m_b must be lists")
 
+    if not all(isinstance(row, list) for row in m_a) or not all(isinstance(row, list) for row in m_b):
+        raise TypeError("m_a and m_b must be lists of lists")
 
-if __name__ == '__main__':
-    m_a = [[1, 2], [3, 4]]
-    m_b = [[1, 2], [3, 4]]
-    print(lazy_matrix_mul(m_a, m_b))
+    if not all((isinstance(ele, int) or isinstance(ele, float)) for row in m_a for ele in row):
+        raise TypeError("m_a should contain only integers or floats")
 
-    m_a = [[1, 2]]
-    m_b = [[3, 4], [5, 6]]
-    print(lazy_matrix_mul(m_a, m_b))
+    if not all((isinstance(ele, int) or isinstance(ele, float)) for row in m_b for ele in row):
+        raise TypeError("m_b should contain only integers or floats")
+
+    if len(m_a) == 0 or len(m_b) == 0 or any(len(row) == 0 for row in m_a) or any(len(row) == 0 for row in m_b):
+        raise ValueError("m_a and m_b cannot be empty")
+
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b cannot be multiplied")
+
+    return np.matmul(m_a, m_b)

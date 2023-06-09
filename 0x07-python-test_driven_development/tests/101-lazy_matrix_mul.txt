@@ -1,24 +1,165 @@
-#!/usr/bin/python3
-"""
-Unittest for lazy_matrix_mul(m_a, m_b)
-"""
+# 101-lazy_matrix_mul.txt
 
-import unittest
-from contextlib import redirect_stdout
-from io import StringIO
-lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+==============================
+How to Use 101-lazy_matrix_mul.py
+==============================
 
-class TestLazyMatrixMul(unittest.TestCase):
-    def test_matrix_multiplication(self):
-        m_a = [[1, 2], [3, 4]]
-        m_b = [[1, 2], [3, 4]]
-        expected_result = [[7, 10], [15, 22]]
-        self.assertEqual(lazy_matrix_mul(m_a, m_b).tolist(), expected_result)
+This module defines a matrix multiplication function ``lazy_matrix_mul(m_a, m_b)`` using NumPy.
 
-        m_a = [[1, 2]]
-        m_b = [[3, 4], [5, 6]]
-        expected_result = [[13, 16]]
-        self.assertEqual(lazy_matrix_mul(m_a, m_b).tolist(), expected_result)
+Usage
+=====
+``lazy_matrix_mul(...)`` returns a new matrix representing the multiplication of ``m_a`` by ``m_b``.
 
-if __name__ == '__main__':
-    unittest.main()
+::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = m_a
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 7 10]
+     [15 22]]
+
+::
+
+    >>> m_a = [[1, 2]]
+    >>> m_b = [
+    ... [3, 4],
+    ... [5, 6]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[13 16]]
+
+The function also works with floating-point numbers.
+
+::
+
+    >>> m_a = [
+    ... [1.2, 5.5, 6.2],
+    ... [4.66, 12.3, -9.2]
+    ... ]
+    >>> m_b = [
+    ... [5.0, 3.3],
+    ... [-2.9, 4.4],
+    ... [7.2, 4.4]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 34.69  55.44]
+     [-78.61  29.018]]
+
+Integers and floats can be combined.
+
+::
+
+    >>> m_a = [
+    ... [1, 2.2, 3.3, 4],
+    ... [5, 6, 7, 8.8],
+    ... ]
+    >>> m_b = [
+    ... [1.1, 2, 3.3],
+    ... [4.0, 5.5, 6],
+    ... [7, 8, 9],
+    ... [10.01, 11, 12.3]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b))
+    [[ 73.04  84.5   95.4 ]
+     [166.59 195.8  223.74]]
+
+A minimum of two arguments must be provided. Otherwise, a TypeError is raised.
+
+::
+
+    >>> print(lazy_matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+::
+
+    >>> print(lazy_matrix_mul([])) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+ValueErrors
+===========
+
+If two matrices cannot be multiplied (i.e., the column count of ``m_a`` is not equal to the row count of ``m_b``), a ValueError is raised.
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [2, 3],
+    ... [4, 5]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    ValueError: Matrices cannot be multiplied
+
+::
+
+    >>> m_a = [
+    ... [1, 2, 3],
+    ... [4, 5, 6]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4],
+    ... [5, 6]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    ValueError: Matrices cannot be multiplied
+
+The matrices must contain only integers or floats; otherwise, a TypeError is raised.
+
+::
+
+    >>> m_a = [
+    ... [1, '2'],
+    ... [3, 4]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: unsupported operand type(s) for *: 'int' and 'str'
+
+::
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, '4']
+    ... ]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    TypeError: unsupported operand type(s) for *: 'int' and 'str'
+
+Empty matrices are not allowed; otherwise, a ValueError is raised.
+
+::
+
+    >>> m_a = [[]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    ValueError: m_a can't be empty
+
+::
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[]]
+    >>> print(lazy_matrix_mul(m_a, m_b)) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+    ValueError: m_b can't be empty

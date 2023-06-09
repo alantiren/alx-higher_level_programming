@@ -1,17 +1,58 @@
-guillaume@ubuntu:~/0x07$ cat tests/3-say_my_name.txt
-#!/usr/bin/python3
-"""
-This is a test module for the say_my_name function.
-"""
-import doctest
-from say_my_name import say_my_name
+# 3-say_my_name.txt
 
-say_my_name("John", "Smith")
-say_my_name("Walter", "White")
-say_my_name("Bob")
-try:
-    say_my_name(12, "White")
-except Exception as e:
-    print(e)
+===========================
+How to Use 3-say_my_name.py
+===========================
 
-doctest.testmod()
+This module defines a function `say_my_name(first_name, last_name="")`.
+
+Usage
+=====
+
+`say_my_name(...)` prints "My name is <first_name> <last_name>".
+
+```python
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("Brennan", "Baraban")
+My name is Brennan Baraban
+
+>>> say_my_name("Cornelius Maxwell", "Jones II")
+My name is Cornelius Maxwell Jones II
+The parameter last_name is optional. If no last name is provided, an empty string is printed instead.
+>>> say_my_name("Brennan")
+My name is Brennan
+Invalid Names
+The parameters first_name and last_name must be strings. Otherwise, a TypeError is raised.
+
+>>> say_my_name(6, "James")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "3-say_my_name.py", line 5, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+>>> say_my_name("LeBron", ["Cavs", "Lakers", "Heat"])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "3-say_my_name.py", line 5, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+>>> say_my_name({"LeBron": 6, "James": 23}, 7.7)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "3-say_my_name.py", line 5, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+>>> say_my_name(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "3-say_my_name.py", line 5, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+At least one name must be provided.
+>>> say_my_name()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Please note that the examples provided are for illustrative purposes and may not cover all possible cases.
+Make sure to test the function with various inputs to ensure its correctness.
