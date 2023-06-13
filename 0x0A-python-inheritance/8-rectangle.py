@@ -6,10 +6,7 @@ Defines a class Rectangle that inherits from BaseGeometry.
 
 
 class BaseGeometry:
-    """
-    Class BaseGeometry.
-    """
-
+    """Class BaseGeometry."""
 
     def area(self):
         """
@@ -34,10 +31,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """
-    Class Rectangle that inherits from BaseGeometry.
-    """
-
+    """Class Rectangle that inherits from BaseGeometry."""
 
     def __init__(self, width, height):
         """
