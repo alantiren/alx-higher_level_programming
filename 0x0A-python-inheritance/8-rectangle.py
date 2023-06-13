@@ -10,6 +10,7 @@ class BaseGeometry:
     Class BaseGeometry.
     """
 
+
     def area(self):
         """
         Raises an Exception with the message area() is not implemented.
@@ -36,6 +37,7 @@ class Rectangle(BaseGeometry):
     """
     Class Rectangle that inherits from BaseGeometry.
     """
+
 
     def __init__(self, width, height):
         """
