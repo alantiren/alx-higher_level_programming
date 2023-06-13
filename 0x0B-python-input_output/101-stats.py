@@ -10,7 +10,6 @@ from collections import defaultdict
 
 def print_stats(size, status_codes):
     """Print metrics accumulated.
-
     Args:
         size (int): The read file size.
         status_codes (dict): count of status codes.
@@ -32,20 +31,16 @@ if __name__ == "__main__":
                 count = 1
             else:
                 count += 1
-
             line = line.split()
-
             try:
                 size += int(line[-1])
             except (IndexError, ValueError):
                 pass
-
             try:
                 if line[-2] in valid_codes:
                     status_codes[line[-2]] += 1
             except IndexError:
                 pass
-
         print_stats(size, status_codes)
 
     except KeyboardInterrupt:
