@@ -3,6 +3,7 @@
 
 """Reads stdin line by line and computes metrics."""
 
+
 import sys
 
 status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
@@ -19,19 +20,19 @@ try:
                 status_counts[status_code] += 1
             total_size += file_size
         if i % 10 == 0:
-            print(f"File size: {total_size}")
+            print("File size: {}".format(total_size))
             for code in sorted(status_codes):
                 count = status_counts[code]
                 if count > 0:
-                    print(f"{code}: {count}")
+                    print("{}: {}".format(code, count))
             print()
 
 except KeyboardInterrupt:
     pass
 
 finally:
-    print(f"File size: {total_size}")
+    print("File size: {}".format(total_size))
     for code in sorted(status_codes):
         count = status_counts[code]
         if count > 0:
-            print(f"{code}: {count}")
+            print("{}: {}".format(code, count))
