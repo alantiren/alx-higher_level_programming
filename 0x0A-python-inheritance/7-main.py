@@ -21,3 +21,4 @@ try:
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
 
+guillaume@ubuntu:~/0x0A$ ./7-main.py
