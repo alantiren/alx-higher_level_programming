@@ -9,7 +9,6 @@ class Student:
 
     def __init__(self, first_name, last_name, age):
         """Initializes a new Student instance.
-
         Args:
             first_name (str): The first name of the student.
             last_name (str): The last name of the student.
@@ -21,11 +20,9 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieves a dictionary representation of a Student instance.
-
         Args:
             attrs (list): A list of attribute names to retrieve.
                           If None, retrieve all attributes.
-
         Returns:
             dict: A dictionary representation of the student.
         """
@@ -42,12 +39,11 @@ class Student:
                 if hasattr(self, attr)
             }
 
-
     def reload_from_json(self, json):
         """Replaces all attributes of the Student instance based on a dictionary.
-
         Args:
-            json (dict): A dictionary representing the student attributes.
+            json (dict): A dictionary representing
+            the student attributes.
         """
         for key, value in json.items():
             setattr(self, key, value)
