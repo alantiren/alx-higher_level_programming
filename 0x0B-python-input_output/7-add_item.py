@@ -1,25 +1,34 @@
 #!/usr/bin/python3
 # 7-add_item.py
-"""Defines a script that adds arguments
-to a Python list and saves it to a file."""
 
+"""Script that adds all arguments
+to a Python list and saves them to a file."""
 
 import sys
-from os import path
-from typing import List
-from save_to_json_file import save_to_json_file
-from load_from_json_file import load_from_json_file
+import json
+import os.path
 
 
-def add_item(args: List[str]):
-    """Adds arguments to a Python list and saves it to a file."""
-    filename = "add_item.json"
+def save_to_json_file(my_obj, filename):
+    """Write an object to a text file
+    using JSON representation."""
+    with open(filename, 'w') as file:
+        json.dump(my_obj, file)
+
+
+def load_from_json_file(filename):
+    """Create an object from a JSON file."""
+    with open(filename, 'r') as file:
+        return json.load(file)
+
+
+filename = "add_item.json"
+
+if os.path.isfile(filename):
+    my_list = load_from_json_file(filename)
+else:
     my_list = []
-    if path.exists(filename):
-        my_list = load_from_json_file(filename)
-    my_list.extend(args)
-    save_to_json_file(my_list, filename)
 
+my_list.extend(sys.argv[1:])
 
-if __name__ == "__main__":
-    add_item(sys.argv[1:])
+save_to_json_file(my_list, filename)
