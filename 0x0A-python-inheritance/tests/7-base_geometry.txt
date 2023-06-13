@@ -1,0 +1,255 @@
+# tests/7-base_geometry.txt
+
+=============================
+How to Use 7-base_geometry.py
+=============================
+
+This module defines a base geometry class called BaseGeometry.
+
+Instantiation
+=============
+
+`BaseGeometry` includes no attributes and is initialized with no arguments.
+
+```python
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> type(bg)
+<class '7-base_geometry.BaseGeometry'>
+>>> print(bg)  # doctest: +ELLIPSIS
+<7-base_geometry.BaseGeometry object at ...>
+>>> bg = BaseGeometry(None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: object() takes no parameters
+>>> bg = BaseGeometry()
+>>> print(bg.area)  # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry object at ...>>
+>>> bg.area()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 14, in area
+    raise Exception("area() is not implemented")
+Exception: area() is not implemented
+>>> print(bg.integer_validator)  # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at ...>>
+>>> bg.integer_validator("valid number", 1)
+>>> bg.integer_validator("invalid number", "number")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: invalid number must be an integer
+>>> bg.integer_validator("another invalid", True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: another invalid must be an integer
+>>> bg.integer_validator("invalid tuple", (1,))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: invalid tuple must be an integer
+>>> bg.integer_validator("and another", [3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: and another must be an integer
+>>> bg.integer_validator("more invalid testing", {3, 4})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: more invalid testing must be an integer
+>>> bg.integer_validator("absolutely every possible invalid", None)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: absolutely every possible invalid must be an integer
+>>> bg.integer_validator("invalid int", -1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 30, in integer_validator
+    raise ValueError(f"{name} must be greater than 0")
+ValueError: invalid int must be greater than 0
+>>> bg.integer_validator("invalid int", 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 30, in integer_validator
+    raise ValueError(f"{name} must be greater than 0")
+ValueError: invalid int must be greater than 0
+>>> bg.integer_validator()  # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> bg.integer_validator(None)  # doctest: +NORMALIZE_WHITESPACE
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+>>> bg.integer_validator({"a": 1}, (1, 2))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: {'a': 1} must be an integer
+>>> bg.integer_validator(["invalid list"], 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: ['invalid list'] must be an integer
+>>> bg.integer_validator("invalid float", 3.14)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: invalid float must be an integer
+>>> bg.integer_validator("age", 25)
+>>> bg.integer_validator("negative", -10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 30, in integer_validator
+    raise ValueError(f"{name} must be greater than 0")
+ValueError: negative must be greater than 0
+>>> bg.integer_validator("zero", 0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 30, in integer_validator
+    raise ValueError(f"{name} must be greater than 0")
+ValueError: zero must be greater than 0
+>>> bg.integer_validator(None, 10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: None must be an integer
+>>> bg.integer_validator(123, 15)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "7-base_geometry.py", line 26, in integer_validator
+    raise TypeError(f"{name} must be an integer")
+TypeError: 123 must be an integer
+Example Usage
+=============
+
+1. Creating an instance of BaseGeometry:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+
+2. Calling the `area()` method (not implemented):
+
+    >>> bg.area()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 10, in area
+        raise Exception("area() is not implemented")
+    Exception: area() is not implemented
+
+3. Validating integer values using the `integer_validator()` method:
+
+    - Validating a valid integer:
+
+        >>> bg.integer_validator("valid_int", 10)
+
+    - Validating an invalid string:
+
+        >>> bg.integer_validator("invalid_string", "abc")
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 20, in integer_validator
+            raise TypeError(f"{name} must be an integer")
+        TypeError: invalid_string must be an integer
+
+    - Validating a negative integer:
+
+        >>> bg.integer_validator("negative_int", -5)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 24, in integer_validator
+            raise ValueError(f"{name} must be greater than 0")
+        ValueError: negative_int must be greater than 0
+
+    - Validating zero:
+
+        >>> bg.integer_validator("zero", 0)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 24, in integer_validator
+            raise ValueError(f"{name} must be greater than 0")
+        ValueError: zero must be greater than 0
+
+    - Validating an invalid list:
+
+        >>> bg.integer_validator(["invalid_list"], 5)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 20, in integer_validator
+            raise TypeError(f"{name} must be an integer")
+        TypeError: ['invalid_list'] must be an integer
+
+    - Validating an invalid float:
+
+        >>> bg.integer_validator("invalid_float", 3.14)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 20, in integer_validator
+            raise TypeError(f"{name} must be an integer")
+        TypeError: invalid_float must be an integer
+
+Additional Examples
+==================
+
+1. Creating an instance of `BaseGeometry` and calling the `area()` method:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 10, in area
+        raise Exception("area() is not implemented")
+    Exception: area() is not implemented
+
+    In this example, we create an instance of the `BaseGeometry` class and call the `area()` method. Since the `area()` method is not implemented, it raises an `Exception` with the message "area() is not implemented".
+
+2. Validating integer values using the `integer_validator()` method:
+
+    >>> bg = BaseGeometry()
+
+    - Validating a valid integer:
+
+        >>> bg.integer_validator("valid_int", 10)
+
+    - Validating a non-integer value:
+
+        >>> bg.integer_validator("non_int", "abc")
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 20, in integer_validator
+            raise TypeError(f"{name} must be an integer")
+        TypeError: non_int must be an integer
+
+    - Validating a negative integer:
+
+        >>> bg.integer_validator("negative_int", -5)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 24, in integer_validator
+            raise ValueError(f"{name} must be greater than 0")
+        ValueError: negative_int must be greater than 0
+
+    - Validating zero:
+
+        >>> bg.integer_validator("zero", 0)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "7-base_geometry.py", line 24, in integer_validator
+            raise ValueError(f"{name} must be greater than 0")
+        ValueError: zero must be greater than 0
