@@ -7,6 +7,7 @@
 import sys
 from collections import defaultdict
 
+
 def print_stats(size, status_codes):
     """Print metrics accumulated.
 
