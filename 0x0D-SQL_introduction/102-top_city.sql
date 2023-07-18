@@ -1,9 +1,5 @@
 -- Script: 102-top_city.sql
 -- Task: Display the top 3 cities' temperature during July and August ordered by temperature (descending).
-
--- Replace 'your_database_name' with the name of the database.
-USE your_database_name;
-
 -- This SQL query will calculate the average temperature (Fahrenheit) for each city during July and August, and order the result by temperature (descending).
 SELECT city, AVG(temperature) AS avg_temp
 FROM weather
