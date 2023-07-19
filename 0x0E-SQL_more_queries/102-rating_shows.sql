@@ -1,13 +1,10 @@
 -- 102-rating_shows.sql
 -- Use the hbtn_0d_tvshows_rate database
 -- List all shows by their rating sum
-SELECT title
-FROM tv_shows
-WHERE title NOT IN
-(SELECT title
-FROM tv_shows
-LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
-LEFT JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy')
-GROUP BY title
-ORDER BY title ASC;
+SELECT `title`, SUM(`rate`) AS `rating`
+  FROM `tv_shows` AS t
+       INNER JOIN `tv_show_ratings` AS r
+       ON t.`id` = r.`show_id`
+ GROUP BY `title`
+ ORDER BY `rating` DESC;
+ 
