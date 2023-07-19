@@ -1,8 +1,5 @@
 -- 103-rating_genres.sql
-
 -- Use the hbtn_0d_tvshows_rate database
-USE hbtn_0d_tvshows_rate;
-
 -- List all genres by their rating sum
 SELECT tv_genres.name, SUM(tv_show_ratings.rating) AS rating_sum
 FROM tv_genres

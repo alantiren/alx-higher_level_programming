@@ -1,8 +1,5 @@
 -- 101-not_a_comedy.sql
-
 -- Use the hbtn_0d_tvshows database
-USE hbtn_0d_tvshows;
-
 -- Get the genre ID for the genre "Comedy"
 SET @comedy_genre_id := (SELECT id FROM tv_genres WHERE name = 'Comedy' LIMIT 1);
 

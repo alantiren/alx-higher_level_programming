@@ -1,8 +1,5 @@
 -- 102-rating_shows.sql
-
 -- Use the hbtn_0d_tvshows_rate database
-USE hbtn_0d_tvshows_rate;
-
 -- List all shows by their rating sum
 SELECT tv_shows.title, SUM(tv_show_ratings.rating) AS rating_sum
 FROM tv_shows
