@@ -1,4 +1,5 @@
 #!/usr/bin/node
-console.log('C is fun');
-console.log('Python is cool');
-console.log('JavaScript is amazing');
+// Use console.log(...) to print each line
+console.log("C is fun");
+console.log("Python is cool");
+console.log("JavaScript is amazing");
