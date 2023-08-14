@@ -8,6 +8,7 @@
 // Factorial of NaN is 1
 // Factorial of a negative number is Infinity
 // Call the factorial function and print the result
+
 function factorial(n) {
   
   if (n === 0 || n === 1) {

@@ -3,6 +3,7 @@
 // Attempt to convert the argument to an integer
 // Check if the conversion was successful and the argument is a positive integer
 // Loop to print the square
+
 const arg = process.argv[2];  
 const size = parseInt(arg);
 if (!isNaN(size) && size > 0) {

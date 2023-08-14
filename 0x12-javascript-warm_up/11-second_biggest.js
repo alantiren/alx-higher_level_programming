@@ -4,6 +4,7 @@
 // Filter out NaN values and duplicates
 // Find the second biggest integer
 // Print the result
+
 const args = process.argv.slice(2);
 const integers = args.map(arg => parseInt(arg));
 const uniqueIntegers = [...new Set(integers.filter(num => !isNaN(num)))];
