@@ -3,13 +3,8 @@
 // Attempt to convert the argument to an integer
 // Check if the conversion was successful
 
-const arg = process.argv[2];
-const parsedInt = parseInt(arg);
-if (!isNaN(parsedInt))
-{
-console.log(`My number: ${parsedInt}`);
-}
-else
-{
-console.log("Not a number");
+if (isNaN(process.argv[2])) {
+  console.log('Not a number');
+} else {
+  console.log('My number: ' + parseInt(process.argv[2]));
 }
