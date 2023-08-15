@@ -4,7 +4,6 @@
 // It inherits from the Square class defined in 5-square.js.
 // The constructor of Square is called using super().
 
-module.exports = Square;
 const BaseSquare = require('./5-square');
 class Square extends BaseSquare {
   charPrint(c) {
@@ -16,3 +15,4 @@ class Square extends BaseSquare {
     }
   }
 }
+module.exports = Square;
