@@ -7,6 +7,8 @@
 // It also defines an instance method print() that prints the rectangle
 // using the character X.
 
+module.exports = Rectangle;
+
 class Rectangle {
   constructor(w, h) {
     if (w > 0 && h > 0) {
@@ -22,5 +24,3 @@ class Rectangle {
     }
   }
 }
-
-module.exports = Rectangle;

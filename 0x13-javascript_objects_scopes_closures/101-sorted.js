@@ -5,6 +5,7 @@
 // Push the user id to the corresponding occurrences count
 // Print the new dictionary
 
+console.log(newDict);
 const { dict } = require('./101-data');
 const newDict = {};
 for (const userId in dict) {
@@ -18,5 +19,3 @@ for (const userId in dict) {
 
   newDict[occurrences].push(userId);
 }
-
-console.log(newDict);

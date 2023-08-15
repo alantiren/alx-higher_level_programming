@@ -4,7 +4,6 @@
 // Initialize the counter
 
 let numArguments = 0;
-
 exports.logMe = function (item) {
   console.log(`${numArguments}: ${item}`);
   numArguments++;

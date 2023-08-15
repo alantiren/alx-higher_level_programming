@@ -6,6 +6,7 @@
 // a positive integer, an empty object is created.
 // It also defines instance methods: print(), rotate(), and double().
 
+module.exports = Rectangle;
 class Rectangle {
   constructor(w, h) {
     if (w > 0 && h > 0) {
@@ -30,5 +31,3 @@ class Rectangle {
     this.height *= 2;
   }
 }
-
-module.exports = Rectangle;
