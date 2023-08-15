@@ -1,3 +1,11 @@
 #!/usr/bin/node
-let count = 0;
-exports.logMe = function (item) { console.log(`${count++}: ${item}`); };
+// This file defines a function named logMe that prints the number of arguments
+// already printed and the new argument value.
+// Initialize the counter
+
+let numArguments = 0;
+
+exports.logMe = function (item) {
+  console.log(`${numArguments}: ${item}`);
+  numArguments++;
+};
