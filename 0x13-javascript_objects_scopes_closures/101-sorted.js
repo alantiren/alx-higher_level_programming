@@ -5,17 +5,14 @@
 // Push the user id to the corresponding occurrences count
 // Print the new dictionary
 
-console.log(newDict);
-const { dict } = require('./101-data');
-const newDict = {};
-for (const userId in dict) {
-  const occurrences = dict[userId];
-  
+const dict = require('./101-data').dict;
+const newDiction = {};
 
-  if (!newDict[occurrences]) {
-    newDict[occurrences] = [];
+Object.keys(dict).map(function (key, index) {
+  if (newDiction[dict[key]] === undefined) {
+    newDiction[dict[key]] = [];
   }
-  
+  newDiction[dict[key]].push(key);
+});
 
-  newDict[occurrences].push(userId);
-}
+console.log(newDiction);
