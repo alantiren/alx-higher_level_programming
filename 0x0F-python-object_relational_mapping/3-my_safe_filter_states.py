@@ -8,27 +8,22 @@ import MySQLdb
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 5:
-        print("Usage: {} username password database state_name".format(sys.argv[0]))
-        sys.exit(1)
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-    db = MySQLdb.connect(user=username,
-                         passwd=password,
-                         db=database,
-                         host='localhost',
-                         port=3306)
-
-    cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-
-    data = cursor.fetchall()
-
-    for row in data:
-        print(row)
-
-    cursor.close()
-    db.close()
+    if len(sys.argv) >= 5:
+        db_connection = MySQLdb.connect(
+            host='localhost',
+            port=3306,
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3]
+        )
+        cursor = db_connection.cursor()
+        state_name = sys.argv[4]
+        cursor.execute(
+            'SELECT * FROM states WHERE CAST(name AS BINARY) ' +
+            'LIKE %s ORDER BY id ASC;',
+            [state_name]
+        )
+        results = cursor.fetchall()
+        for result in results:
+            print(result)
+        db_connection.close()
