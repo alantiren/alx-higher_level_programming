@@ -2,12 +2,12 @@
 """
 Script that lists all City objects from the database hbtn_0e_101_usa.
 """
-
 import sys
 from relationship_state import State, Base
 from relationship_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:

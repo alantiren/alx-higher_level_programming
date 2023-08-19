@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Script that takes in the name of a state as an argument and lists all cities
 of that state, using the database hbtn_0e_4_usa.
@@ -34,8 +33,6 @@ if __name__ == '__main__':
     cursor.execute(query, (state_name,))
 
     data = cursor.fetchall()
-
-    # Extract city names from the tuples and join them with commas
     city_names = ', '.join(row[0] for row in data)
 
     print(city_names)

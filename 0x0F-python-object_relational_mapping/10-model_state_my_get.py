@@ -2,11 +2,11 @@
 """
 Script that prints the states.id of the State object with the name passed as argument.
 """
-
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
