@@ -11,10 +11,12 @@ import sys
 if __name__ == "__main__":
     url = sys.argv[1]
     response = requests.get(url)
-    
+    body = response.text
     # Display the response body
     print(response.text)
     
     # Check for HTTP status code >= 400
     if response.status_code >= 400:
         print("Error code:", response.status_code)
+    else:
+        print(body)
