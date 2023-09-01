@@ -9,17 +9,20 @@ import sys
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        q = ""
-    else:
+    url = "http://0.0.0.0:5000/search_user"
+    if len(sys.argv) > 1:
         q = sys.argv[1]
-    data = {'q': q}
+    else:
+        q = ""
+    payload = {"q": q}
+    response = requests.post(url, data=payload)
     try:
-        response = requests.post('http://0.0.0.0:5000/search_user', data=data)
-        user_data = response.json()
-        if user_data:
-            print("[{}] {}".format(user_data.get('id'), user_data.get('name')))
-        else:
+        json_outp = response.json()
+        if not json_outp:
             print("No result")
-    except ValueError:
+        else:
+            my_id = json_outp.get("id")
+            my_name = json_outp.get("name")
+            print("[{}] {}".format(my_id, my_name))
+    except ValueError as invalid_json:
         print("Not a valid JSON")
