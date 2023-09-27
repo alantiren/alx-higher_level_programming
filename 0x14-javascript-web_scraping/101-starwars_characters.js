@@ -19,7 +19,7 @@ request.get(apiUrl, (error, response, body) => {
     console.error(`No characters found for movie ID ${movieId}`);
   }
 });
-function fetchAndPrintCharacters(charactersUrls, index) {
+function fetchAndPrintCharacters (charactersUrls, index) {
   if (index >= charactersUrls.length) {
     return;
   }
